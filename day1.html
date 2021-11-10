@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO WORLD</title>
+</head>
+<body>
+    <button class="taze" onclick="taze()" id="taze" >Taze</button>
+    <p class="note">Warning: Not for people with epilepsy</p>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .note {
+            position: fixed;
+            bottom: 0;
+            
+        }
+        button.taze {
+            font-size: 200px;
+            text-align: center;
+            width: 50%;
+            height: 50vh;
+            margin-left: 25%;
+            margin-top: 12.5%;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button.taze:hover {
+            color: white;
+            background-color: red;
+        }
+    </style>
+    <script>
+        function taze() {
+            document.getElementById("taze").style.visibility = "hidden"
+            const whiteInterval = setInterval(() => {
+                document.body.style.backgroundColor = "white"
+            }, 100)
+            setTimeout(() => {
+                document.body.style.backgroundColor = "black"
+                const blackInverval = setInterval(() => {
+                    document.body.style.backgroundColor = "black"
+                }, 100)
+                setTimeout(() => {
+                    clearInterval(blackInverval)
+                    clearInterval(whiteInterval)
+                    document.getElementById("taze").style.visibility = "visible"
+                    document.body.style.backgroundColor = "white"
+                }, 2000)
+            }, 50)
+        }
+    </script>
+</body>
+</html>
